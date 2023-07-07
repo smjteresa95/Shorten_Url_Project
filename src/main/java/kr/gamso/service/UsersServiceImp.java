@@ -17,4 +17,9 @@ public class UsersServiceImp implements UsersService{
     public void insertUser(SaveUserDTO saveUserDTO) {
         userRepository.saveUser(saveUserDTO);
     }
+
+    @Override
+    public int selectUserId(String id) {
+        return userRepository.selectUserId(id);
+    }
 }
