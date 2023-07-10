@@ -1,27 +1,37 @@
 package kr.gamso.service;
 
-import kr.gamso.dto.DuplicateCheckIdDTO;
+import kr.gamso.dto.FindUserDTO;
 import kr.gamso.dto.SaveUserDTO;
-import kr.gamso.repository.UsersRepository;
+import kr.gamso.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-public class UsersServiceImpl implements UsersService {
-
-    UsersRepository usersRepository;
-
+public class UsersServiceImpl implements UsersService{
+    UserRepository userRepository;
     @Autowired
-    public UsersServiceImpl(UsersRepository usersRepository){
-        this.usersRepository = usersRepository;
-    }
-    @Override
-    public void InsertUser(SaveUserDTO saveUserDTO) {
-        usersRepository.saveUser();
+    public UsersServiceImpl(UserRepository userRepository){
+        this.userRepository = userRepository;
     }
 
     @Override
-    public void duplicateCheckId(DuplicateCheckIdDTO duplicateCheckIdDTO) {
-        usersRepository.selectUserId();
+    public List<FindUserDTO> findAllUsers() {
+        return userRepository.findAllUsers();
+    }
+
+    @Override
+    public void insertUser(SaveUserDTO saveUserDTO) {
+        userRepository.saveUser(saveUserDTO);
+    }
+
+    @Override
+    public boolean selectUserId(String id) {
+        int idCnt = userRepository.selectUserId(id);
+        if (idCnt == 0){
+            return true;
+        }
+        return false;
     }
 }
