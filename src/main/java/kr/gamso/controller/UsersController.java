@@ -20,8 +20,8 @@ public class UsersController {
     }
 
     @RequestMapping("/{id}")
-    public ResponseEntity<?> duplicateCheckId(@PathVariable String id){
-        int userIdCheck = usersService.selectUserId(id);
+    public ResponseEntity<Boolean> duplicateCheckId(@PathVariable String id){
+        boolean userIdCheck = usersService.selectUserId(id);
 
         return  ResponseEntity.ok(userIdCheck);
     }
