@@ -9,17 +9,22 @@
 		<link rel="stylesheet" href="css/main.css" type="text/css"/>
 	</head>
 	<body class="homepage is-preload">
-		<div style="width: 100%; height: 30px;">
-			<div style="float: right;" class="signMenu">
-				<a class="signUp" href="#">sign up</a>
-				<a class="signIn" href="#">sign in</a>
-			</div>
-		</div>
+		<%@ include file="signMenu.jsp"%>
 		<div id="page-wrapper">
 			
 			<!-- Header -->
 				<section id="header">
-					<%@ include file="header.jsp" %>
+					<!-- Logo -->
+					<a href="/index"><img src="${path}/images/mainLogo.png" style="width: 100px; height: 110px;"></a>
+					<!-- <h1><a href="index.jsp">GAMSO</a></h1> -->
+
+					<!-- Nav -->
+						<nav class="nav">
+							<ul>
+								<li class="current"><a href="/index">Home</a></li>
+								<li><a href="/url/main">GoShorten</a></li>
+							</ul>
+						</nav>
 					<!-- Banner
 						<section id="banner">
 							<header>
@@ -87,35 +92,7 @@
 
 	<!-- Footer -->
 		<section id="footer">
-			<div class="container">
-				<div class="row">
-					<div class="col-12">
-						<ul class="contact">
-							<li>
-								<h3>Address</h3>
-								<p>
-									Untitled Incorporated 1234 Somewhere Road Suite Nashville, TN 00000-0000
-								</p>
-							</li>
-							<li>
-								<h3>Mail</h3>
-								<p><a href="#">someone@untitled.tld</a></p>
-							</li>
-							<li>
-								<h3>Phone</h3>
-								<p>(800) 000-0000</p>
-							</li>
-						</ul>
-						<!-- Copyright -->
-							<div id="copyright">
-								<ul class="links">
-									<li>&copy; GAMSO</li><li>Design By &nbsp;&nbsp;<a href="#">gamso and Dopetrope </a></li>
-								</ul>
-							</div>
-
-					</div>
-				</div>
-			</div>
+			<%@ include file="footer.jsp"%>
 		</section>
 
 	</div>

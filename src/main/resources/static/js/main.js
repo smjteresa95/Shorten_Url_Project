@@ -25,7 +25,7 @@
 		});
 
 	// Dropdowns.
-		$('#nav > ul').dropotron({
+		$('.nav > ul').dropotron({
 			mode: 'fade',
 			noOpenerFade: true,
 			alignment: 'center'
@@ -45,7 +45,7 @@
 			$(
 				'<div id="navPanel">' +
 					'<nav>' +
-						$('#nav').navList() +
+						$('.nav').navList() +
 					'</nav>' +
 				'</div>'
 			)
