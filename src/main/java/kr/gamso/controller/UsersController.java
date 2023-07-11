@@ -19,6 +19,15 @@ public class UsersController {
         this.usersService = usersService;
     }
 
+    @RequestMapping("/signUp/ToS")
+    public String goToS(){
+        return "ToS";
+    }
+
+    @RequestMapping("/signUp")
+    public String goSignUp(){
+        return "signUp";
+    }
     @RequestMapping("/{id}")
     public ResponseEntity<Boolean> duplicateCheckId(@PathVariable String id){
         boolean userIdCheck = usersService.selectUserId(id);

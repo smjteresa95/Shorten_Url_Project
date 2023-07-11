@@ -1,7 +1,7 @@
 package kr.gamso.repository;
 
-import kr.gamso.dto.FindUserDTO;
-import kr.gamso.dto.SaveUserDTO;
+import kr.gamso.dto.userDTO.FindUserDTO;
+import kr.gamso.dto.userDTO.SaveUserDTO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

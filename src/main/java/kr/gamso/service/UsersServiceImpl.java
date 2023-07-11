@@ -1,7 +1,7 @@
 package kr.gamso.service;
 
-import kr.gamso.dto.FindUserDTO;
-import kr.gamso.dto.SaveUserDTO;
+import kr.gamso.dto.userDTO.FindUserDTO;
+import kr.gamso.dto.userDTO.SaveUserDTO;
 import kr.gamso.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class UsersServiceImp implements UsersService{
+public class UsersServiceImpl implements UsersService{
     UserRepository userRepository;
     @Autowired
-    public UsersServiceImp(UserRepository userRepository){
+    public UsersServiceImpl(UserRepository userRepository){
         this.userRepository = userRepository;
     }
 
