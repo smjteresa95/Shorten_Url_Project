@@ -9,11 +9,24 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 @SpringBootTest
 public class UrlRepositoryTest {
 
     @Autowired
     UrlRepository urlRepository;
+
+
+    @Test
+    @Transactional
+    @DisplayName("find all Shorten url test")
+    public void findAllShortenUrlTest(){
+
+        List<ShortenUrlDTO> shortenUrlDTOList = urlRepository.findAllShortenUrl();
+
+        assertEquals(4, shortenUrlDTOList.size());
+    }
 
     @Test
     @Transactional

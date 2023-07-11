@@ -8,9 +8,10 @@ import java.util.List;
 @Mapper
 public interface UrlRepository {
 
-    void saveShortenUrl(ShortenUrlDTO shortenUrlDTO);
     List<ShortenUrlDTO> findAllShortenUrl();
+    void saveShortenUrl(ShortenUrlDTO shortenUrlDTO);
 
-    ShortenUrlDTO findShortenUrl(String shortenUrl);
+
+    // ShortenUrlDTO findShortenUrl(String shortenUrl);
 
 }
