@@ -9,5 +9,5 @@ public interface UsersService {
     List<FindUserDTO> findAllUsers();
     void insertUser(SaveUserDTO saveUserDTO);
 
-    boolean selectUserId(String id);
+    int selectUserId(String id);
 }

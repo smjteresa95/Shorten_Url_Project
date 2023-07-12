@@ -27,11 +27,7 @@ public class UsersServiceImpl implements UsersService{
     }
 
     @Override
-    public boolean selectUserId(String id) {
-        int idCnt = userRepository.selectUserId(id);
-        if (idCnt == 0){
-            return true;
-        }
-        return false;
+    public int selectUserId(String id) {
+        return userRepository.selectUserId(id);
     }
 }

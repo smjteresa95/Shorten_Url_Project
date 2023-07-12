@@ -3,7 +3,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Dopetrope by HTML5 UP</title>
+		<title>GAMSO 이용약관</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="${path}/css/main.css" type="text/css"/>
@@ -205,28 +205,12 @@
 		</div>
 
 		<!-- Scripts -->
-			<script src="js/jquery.min.js"></script>
-			<script src="js/jquery.dropotron.min.js"></script>
-			<script src="js/browser.min.js"></script>
-			<script src="js/breakpoints.min.js"></script>
-			<script src="js/util.js"></script>
-			<script src="js/main.js"></script>
-			<script>
-				function checkOk(){
-					let ok = document.querySelector("input[name='ag']:checked");
-					let nextBtn = document.querySelector(".nextBtn");
-					if(ok.value == 'ok'){
-						nextBtn.classList.replace("btn-secondary", "btn-dark")
-						nextBtn.addEventListener("click", goSignUpPage)
-					}else{
-						nextBtn.classList.replace("btn-dark", "btn-secondary")
-						nextBtn.removeEventListener("click", goSignUpPage)
-					}
-				}
-
-				function goSignUpPage(){
-					location.href = "/users/signUp";
-				}
-			</script>
+			<script src="${path}/js/jquery.min.js"></script>
+			<script src="${path}/js/jquery.dropotron.min.js"></script>
+			<script src="${path}/js/browser.min.js"></script>
+			<script src="${path}/js/breakpoints.min.js"></script>
+			<script src="${path}/js/util.js"></script>
+			<script src="${path}/js/main.js"></script>
+			<script src="${path}/js/ToS.js"></script>
 	</body>
 </html>

@@ -1,5 +1,7 @@
 package kr.gamso.controller;
 
+import kr.gamso.dto.emailDTO.EmailCheckNumberDTO;
+import kr.gamso.dto.emailDTO.SendEmailDTO;
 import kr.gamso.service.EmailService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -10,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/mail")
+@RequestMapping("/email")
 public class EmailController {
     EmailService emailService;
 
@@ -19,10 +21,15 @@ public class EmailController {
         this.emailService = emailService;
     }
 
-    @PostMapping("/sendMail")
-    public ResponseEntity<String> emailConfirm(@RequestBody String email) throws Exception {
+    @PostMapping("/sendEmail")
+    public ResponseEntity<EmailCheckNumberDTO> emailConfirm(@RequestBody SendEmailDTO sendEmailDTO) throws Exception {
+        String email = sendEmailDTO.getEmail();
+        System.out.println(email);
+
         String code = emailService.sendSimpleMessage(email);
-        log.info("인증코드 : " + code);
-        return ResponseEntity.ok(code);
+        EmailCheckNumberDTO emailCheckNumberDTO = EmailCheckNumberDTO.builder()
+                .code(code)
+                .build();
+        return ResponseEntity.ok(emailCheckNumberDTO);
     }
 }

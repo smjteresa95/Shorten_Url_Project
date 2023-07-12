@@ -49,8 +49,8 @@ public class UsersServiceTest {
     public void selectUserIDTest(){
         String id = "asd";
 
-        boolean check = usersService.selectUserId(id);
+        long check = usersService.selectUserId(id);
 
-        assertFalse(check);
+        assertEquals(1, check);
     }
 }
