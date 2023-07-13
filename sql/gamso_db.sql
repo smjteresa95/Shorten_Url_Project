@@ -7,6 +7,7 @@ CREATE TABLE users(
 );
 
 CREATE TABLE url(
+    url_number INT PRIMARY KEY AUTO_INCREMENT,
     member_number INT NOT NULL,
     original_url TEXT NOT NULL,
     shorten_url TEXT NOT NULL,

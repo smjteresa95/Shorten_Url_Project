@@ -1,7 +1,7 @@
 package kr.gamso.repository;
 
-import kr.gamso.dto.FindUserDTO;
-import kr.gamso.dto.SaveUserDTO;
+import kr.gamso.dto.userDTO.FindUserDTO;
+import kr.gamso.dto.userDTO.SaveUserDTO;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
