@@ -1,7 +1,7 @@
 package kr.gamso.service;
 
-import kr.gamso.dto.FindUserDTO;
-import kr.gamso.dto.SaveUserDTO;
+import kr.gamso.dto.userDTO.FindUserDTO;
+import kr.gamso.dto.userDTO.SaveUserDTO;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,8 +49,8 @@ public class UsersServiceTest {
     public void selectUserIDTest(){
         String id = "asd";
 
-        boolean check = usersService.selectUserId(id);
+        long check = usersService.selectUserId(id);
 
-        assertFalse(check);
+        assertEquals(1, check);
     }
 }

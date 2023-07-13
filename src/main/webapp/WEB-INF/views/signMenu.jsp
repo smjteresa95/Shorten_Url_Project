@@ -8,7 +8,7 @@
     <body>
         <div style="width: 100%; height: 100px;">
 			<div style="float: right;" class="signMenu">
-				<a class="signUp" href="#">sign up</a>
+				<a class="signUp" href="/users/signUp/ToS">sign up</a>
 				<a class="signIn" href="#">sign in</a>
 				<nav  class="nav" style="margin-top: 10px;">
 					<ul>

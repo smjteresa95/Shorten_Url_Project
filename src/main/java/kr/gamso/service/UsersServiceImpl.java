@@ -1,7 +1,7 @@
 package kr.gamso.service;
 
-import kr.gamso.dto.FindUserDTO;
-import kr.gamso.dto.SaveUserDTO;
+import kr.gamso.dto.userDTO.FindUserDTO;
+import kr.gamso.dto.userDTO.SaveUserDTO;
 import kr.gamso.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,11 +27,7 @@ public class UsersServiceImpl implements UsersService{
     }
 
     @Override
-    public boolean selectUserId(String id) {
-        int idCnt = userRepository.selectUserId(id);
-        if (idCnt == 0){
-            return true;
-        }
-        return false;
+    public int selectUserId(String id) {
+        return userRepository.selectUserId(id);
     }
 }

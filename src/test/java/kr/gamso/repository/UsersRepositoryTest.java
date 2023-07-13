@@ -1,13 +1,7 @@
 package kr.gamso.repository;
 
-import kr.gamso.dto.SaveUserDTO;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.transaction.annotation.Transactional;
-
-import kr.gamso.dto.FindUserDTO;
-import kr.gamso.dto.SaveUserDTO;
+import kr.gamso.dto.userDTO.FindUserDTO;
+import kr.gamso.dto.userDTO.SaveUserDTO;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +14,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 public class UsersRepositoryTest {
-
     @Autowired
     UserRepository userRepository;
 
@@ -47,7 +40,6 @@ public class UsersRepositoryTest {
                 .pw(pw)
                 .build();
 
-        // assertEquals();
         userRepository.saveUser(saveUserDTO);
         List<FindUserDTO> userDTOList = userRepository.findAllUsers();
         assertEquals(4, userDTOList.size());
