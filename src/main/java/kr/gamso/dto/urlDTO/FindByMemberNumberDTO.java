@@ -5,15 +5,14 @@ import lombok.*;
 
 @Getter@Setter@ToString
 @AllArgsConstructor@NoArgsConstructor@Builder
-public class GenerateCustomShortenUrlDTO {
-    private long urlNumber;
+public class FindByMemberNumberDTO {
     private long memberNumber;
     private String originalUrl;
-    private String ShortenUrl;
+    private String shortenUrl;
 
-    public GenerateCustomShortenUrlDTO(Url url){
+    public void FindByMemberNumberDto(Url url){
         this.memberNumber = url.getMemberNumber();
         this.originalUrl = url.getOriginalUrl();
-        this.ShortenUrl = url.getShortenUrl();
+        this.shortenUrl = url.getShortenUrl();
     }
 }

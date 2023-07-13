@@ -12,6 +12,7 @@ public class FindAllShortenUrlDTO {
     private String ShortenUrl;
 
     public FindAllShortenUrlDTO(Url url){
+        this.urlNumber = url.getUrlNumber();
         this.memberNumber = url.getMemberNumber();
         this.originalUrl = url.getOriginalUrl();
         this.ShortenUrl = url.getShortenUrl();

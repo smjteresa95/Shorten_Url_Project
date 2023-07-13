@@ -1,9 +1,6 @@
 package kr.gamso.repository;
 
-import kr.gamso.dto.urlDTO.FindAllShortenUrlDTO;
-import kr.gamso.dto.urlDTO.FindByUrlNumberDTO;
-import kr.gamso.dto.urlDTO.InsertShortenUrlDTO;
-import kr.gamso.dto.urlDTO.UpdateShortenUrlDTO;
+import kr.gamso.dto.urlDTO.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,15 +9,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 public class UrlRepositoryTest {
 
     @Autowired
     UrlRepository urlRepository;
-
 
     @Test
     @Transactional
@@ -44,6 +39,18 @@ public class UrlRepositoryTest {
 
         assertEquals(shortenUrl, findByUrlNumberDTO.getShortenUrl());
         assertEquals(originalUrl, findByUrlNumberDTO.getOriginalUrl());
+    }
+
+    @Test
+    @Transactional
+    @DisplayName("find by member number test")
+    public void findByMemberNumberTest(){
+        long memberNumber = 2;
+
+        List<FindByMemberNumberDTO> resultList = urlRepository.findByMemberNumber(memberNumber);
+
+        assertTrue(resultList.size() > 0);
+        assertEquals(3, resultList.size());
     }
 
     @Test
