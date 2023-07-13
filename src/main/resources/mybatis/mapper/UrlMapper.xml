@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.gamso.repository.UrlRepository">
+    <select id="findAllShortenUrl" resultType="kr.gamso.dto.urlDTO.FindAllShortenUrlDTO">
+        SELECT
+            url_number as urlNumber,
+            member_number as memberNumber,
+            original_url as originalUrl,
+            shorten_url as shortenUrl
+        FROM
+            url
+    </select>
+
+    <select id="findByUrlNumber" resultType="kr.gamso.dto.urlDTO.FindByUrlNumberDTO" parameterType="long">
+        SELECT
+            member_number as memberNumber,
+            shorten_url as shortenUrl,
+            original_url as originalUrl
+        FROM
+            url
+        WHERE
+            url_number = #{urlNumber}
+    </select>
+
+    <select id="findByMemberNumber" resultType="kr.gamso.dto.urlDTO.FindByMemberNumberDTO" parameterType="long">
+        SELECT
+            url_number as urlNumer,
+            shorten_url as shortenUrl,
+            original_url as originalUrl
+        FROM
+            url
+        WHERE
+            member_number = #{memberNumber}
+    </select>
+
+    <insert id="saveShortenUrl" parameterType="kr.gamso.dto.urlDTO.InsertShortenUrlDTO">
+        INSERT INTO url
+                (member_number, original_url, shorten_url)
+                VALUES
+                (#{memberNumber}, #{originalUrl}, #{shortenUrl})
+    </insert>
+
+    <delete id="deleteShortenUrl" parameterType="string">
+        DELETE FROM
+                   url
+        WHERE
+            shorten_url = #{shortenUrl}
+    </delete>
+
+    <update id="updateShortenUrl" parameterType="kr.gamso.dto.urlDTO.UpdateShortenUrlDTO">
+        UPDATE
+                url
+            SET
+                shorten_url = #{shortenUrl},
+                shorten_date = now()
+            WHERE
+                url_number = #{urlNumber}
+    </update>
+
+</mapper>

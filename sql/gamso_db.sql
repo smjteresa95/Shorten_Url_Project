@@ -23,7 +23,7 @@ INSERT INTO users (id, email, pw) VALUES
 INSERT INTO url (member_number, original_url, shorten_url) VALUES
                (1,"www.naver.com","gamso.kr/11sxw2"),
                (2,"www.google.com","gamso.kr/32sad"),
-               (2,"www.naver.com","gamso.kr/32sad"),
+               (2,"www.naver.com","gamso.kr/45sad"),
                (2,"www.daum.com", "gamso.kr/weq22");
 
 SELECT * FROM users;
