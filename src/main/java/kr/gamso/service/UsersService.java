@@ -2,12 +2,14 @@ package kr.gamso.service;
 
 import kr.gamso.dto.userDTO.FindUserDTO;
 import kr.gamso.dto.userDTO.SaveUserDTO;
+import kr.gamso.dto.userDTO.AddUserRequestDTO;
 
 import java.util.List;
 
 public interface UsersService {
-    List<FindUserDTO> findAllUsers();
-    void insertUser(SaveUserDTO saveUserDTO);
+    List<FindUserDTO> findAll();
+    void insert(SaveUserDTO saveUserDTO);
 
-    int selectUserId(String id);
+    boolean isIdDuplicate(String id);
+    Long save(AddUserRequestDTO dto);
 }

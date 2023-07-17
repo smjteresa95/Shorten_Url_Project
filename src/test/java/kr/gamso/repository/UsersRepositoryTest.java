@@ -5,6 +5,9 @@ import kr.gamso.dto.userDTO.SaveUserDTO;
 import kr.gamso.dto.FindUserByIdDTO;
 
 import java.util.List;
+import java.util.Optional;
+
+import kr.gamso.entity.Users;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
 
@@ -24,51 +27,57 @@ public class UsersRepositoryTest {
     @Test
     @Transactional
     @DisplayName("전체 회원 리스트")
-    public void findAllUsersTest(){
-        List<FindUserDTO> userDTOList = userRepository.findAllUsers();
+    public void findAllTest(){
+        List<Users> usersList = userRepository.findAll();
 
-        assertEquals(3, userDTOList.size());
+        assertEquals(3, usersList.size());
     }
 
     @Test
     @Transactional
     @DisplayName("user 회원가입 테스트")
-    public void saveUserTest(){
+    public void saveTest(){
         String id = "wsr";
         String email = "wqe@naver.com";
         String pw = "1231asd2";
 
-        SaveUserDTO saveUserDTO = SaveUserDTO.builder()
+        Users user = Users.builder()
                 .id(id)
                 .email(email)
                 .pw(pw)
                 .build();
 
-        userRepository.saveUser(saveUserDTO);
-        List<FindUserDTO> userDTOList = userRepository.findAllUsers();
-        assertEquals(4, userDTOList.size());
+        userRepository.save(user);
+        List<Users> usersList = userRepository.findAll();
+        assertEquals(4, usersList.size());
     }
+
 
     @Test
-    @Transactional
-    @DisplayName("중복 id 확인")
-    public void selectUserIDTest(){
-        String id = "asd";
-
-       int cnt = userRepository.selectUserId(id);
-
-       assertEquals(1, cnt);
-    }
-
-    public void findUserByIdTest(){
+    public void findByIdTest(){
         String id = "asd";
         String email = "hjk@naver.com";
         String pw = "1234";
 
-        FindUserByIdDTO user = userRepository.findUserById(id);
+        Optional<Users> user = userRepository.findById(id);
 
-        assertThat(user.getEmail()).isEqualTo(email);
-        assertThat(user.getPw()).isEqualTo(pw);
+        assertThat(user.get().getEmail()).isEqualTo(email);
+        assertThat(user.get().getPw()).isEqualTo(pw);
     }
+
+    @Test
+    @DisplayName("findByEmail method test")
+    public void findByEmailTest(){
+
+        String id = "asd";
+        String email = "hjk@naver.com";
+        String pw = "1234";
+
+        Optional<Users> user = userRepository.findByEmail(email);
+
+        assertThat(user.get().getId()).isEqualTo(id);
+        assertThat(user.get().getPassword()).isEqualTo(pw);
+    }
+
 
 }

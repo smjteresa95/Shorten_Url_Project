@@ -2,7 +2,27 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="kr.gamso.repository.UserRepository">
-    <select id="findUserById" resultType="kr.gamso.dto.FindUserByIdDTO">
+
+    <select id="findAll" resultType="kr.gamso.entity.Users">
+        SELECT
+            member_number as memberNumber,
+            id,
+            email,
+            pw,
+            signup_date as signupDate
+        FROM
+            users
+    </select>
+
+    <insert id="save" parameterType="kr.gamso.entity.Users">
+        INSERT INTO
+            users
+            (member_number, id, email, pw, signup_date)
+        VALUES
+            (#{memberNumber}, #{id}, #{email}, #{pw}, #{signupDate})
+    </insert>
+
+    <select id="findById" resultType="kr.gamso.entity.Users">
         SELECT
             id, email, pw
         FROM
@@ -10,4 +30,17 @@
         WHERE
             id = #{id}
     </select>
+
+    <select id="findByEmail" resultType="kr.gamso.entity.Users">
+        SELECT
+            id,
+            email,
+            pw
+        FROM
+            users
+        WHERE
+            email = #{email}
+    </select>
+
+
 </mapper>
